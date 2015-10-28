@@ -9,9 +9,11 @@ quinkennedy.holdTime = 0;
 
 //my custom draw function for this "brush"
 quinkennedy.draw = function() {
+
 	//if the user is pressing the mouse, we'll do stuff
 	if (mouseIsPressed) {
-		this.holdTime++;
+		var d = pixelDensity;
+		this.holdTime += d;
 		
 		//an array to store the pixel values for sorting
 		var toSort = [];
@@ -19,18 +21,17 @@ quinkennedy.draw = function() {
 		loadPixels();
 		//the pixelDensity of the user's screen 
 		//(for properly handling retina screens)
-		var d = pixelDensity;
 
 		//retrieve the relevant pixels from the Canvas
 		//for each pixel below the cursor
 		for(var i = 0; i < this.holdTime; i++){
 			//an array to hold pixel components together
-			// 0 = red, 1 = green, 2 = blue
+			// 0 = red, 1 = green, 2 = blue, 3 = alpha
 			var pixel = [];
 
 			//for each component in the pixel
-			for(var j = 0; j < 3; j++){
-				var pixelI = ((i+mouseY)*width*d+mouseX)*d*4+j;
+			for(var j = 0; j < 4; j++){
+				var pixelI = ((i+mouseY)*d*width+mouseX)*d*4+j;
 				pixel.push(pixels[pixelI]);
 			}
 			//add the fully-assembled pixel to the array for sorting
@@ -44,8 +45,8 @@ quinkennedy.draw = function() {
 		//for each pixel below the cursor
 		for(var i = 0; i < this.holdTime; i++){
 			//for each component in the pixel
-			for(var j = 0; j < 3; j++){
-				var pixelI = ((i+mouseY)*width*d+mouseX)*d*4+j;
+			for(var j = 0; j < 4; j++){
+				var pixelI = ((i+mouseY)*d*width+mouseX)*d*4+j;
 				pixels[pixelI] = sorted[i][j];
 			}
 		}
@@ -73,7 +74,7 @@ quinkennedy.compareLuminance = function(pixelA, pixelB){
 //get the luminance for an individual RGB pixel
 quinkennedy.getLuminance = function(pixel){
 	//convenience variables for accessing individual components
-	var redI = 0, greenI = 1, blueI = 2;
+	var redI = 0, greenI = 1, blueI = 2, alphaI = 3;
 	//comparative weights for perception of individual component colors
 	// -- from my vague memory of Adobe weights for Luminance calculation
 	var redWeight = .2, greenWeight = .7, blueWeight = .1;
