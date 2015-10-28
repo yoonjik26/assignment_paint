@@ -5,7 +5,9 @@ brushes.push(paint);
 
 paint.draw = function() {
 	noFill();
-	stroke(50, 255, 255, 150);
+	var c = color(red(forecolor), green(forecolor), blue(forecolor), 150);
+
+	stroke(c);
 	strokeWeight(10);
 
 	if (mouseIsPressed) {

@@ -3,8 +3,7 @@
 
 var brushes = [];
 var currentBrush;
-
-
+var forecolor;
 
 function Brush(name) {
 	this.name = name;
@@ -22,7 +21,8 @@ Brush.prototype.keyReleased = function(){};
 Brush.prototype.keyTyped = function(){};
 
 function setup() {
-	createCanvas(800, 600);
+	var canvas = createCanvas(800, 600);
+	canvas.parent("main");
 	background(255);
 	cursor(CROSS);
 	brushes.forEach( function(brush) {
@@ -44,10 +44,15 @@ function setup() {
 	});
 
 	currentBrush = brushes[1];
-
-
 	currentBrush.activate();
 	currentBrush.button.addClass("active");
+
+	forecolor = color(0,0,0);
+	var colorPicker = $('<input id="color-picker" type="color">');
+	$(".brushes").append(colorPicker);
+	colorPicker.change( function() {
+		forecolor = color($(this).val());
+	});
 
 }
 
