@@ -1,7 +1,7 @@
 console.log("loading quinkennedy");
 
 //create and add my custom brush to the panel
-var quinkennedy = new Brush("quinkennedy");
+var quinkennedy = new Brush("quinkennedy", "./brushes/quink/quink.svg");
 brushes.push(quinkennedy);
 
 //for tracking how long the mouse has been held down
@@ -39,7 +39,7 @@ quinkennedy.draw = function() {
 		}
 
 		//sort the pixels
-		var sorted = Array.sort(toSort, this.compareLuminance.bind(this));
+		var sorted = toSort.sort(this.compareLuminance.bind(this));
 
 		//insert the sorted pixels back into the Canvas
 		//for each pixel below the cursor
