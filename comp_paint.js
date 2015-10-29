@@ -5,6 +5,7 @@ var brushes = [];
 var currentBrush;
 var forecolor;
 
+// create base object for brushes
 function Brush(name) {
 	this.name = name;
 }
