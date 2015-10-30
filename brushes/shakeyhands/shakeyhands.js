@@ -1,14 +1,23 @@
-console.log("loading shakeyhands");
+////////////////////////////////////////////////////////////////////
+// shakeyhands.js
+//
+// draws a shakey line, varies based on drawing speed
+//
+// author: Greg Schomburg
+
 
 var shakeyhands = new Brush("shakey",  "./brushes/shakeyhands/shakeyhands.svg");
-brushes.push(shakeyhands);
+ brushes.push(shakeyhands);
 
 var speed=1;
 var lastPositionPoint = {x:0, y:0};
 
-shakeyhands.draw = function(){
-	//useless
-};
+
+
+////////////////////////////////////////////////////////////////////
+// define brush behavior
+
+shakeyhands.draw = function(){};
 
 
 shakeyhands.mouseDragged = function() {

@@ -1,7 +1,21 @@
-console.log("loading paint");
+////////////////////////////////////////////////////////////////////
+// pencil.js
+//
+// basic paint tool: draws a thick, transparent line
+// author: Justin Bakse
+
+
+
+////////////////////////////////////////////////////////////////////
+// create and install brush
 
 var paint = new Brush("paint", "brushes/paint/paint.svg");
 brushes.push(paint);
+
+
+
+////////////////////////////////////////////////////////////////////
+// define brush behavior
 
 paint.mouseDragged = function() 
 {
