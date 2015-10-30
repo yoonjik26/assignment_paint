@@ -1,6 +1,6 @@
 console.log("loading fastfurious");
 
-var fastfurious = new Brush("fast");
+var fastfurious = new Brush("fast", "./brushes/fastfurious/fastfurious.svg");
 brushes.push(fastfurious);
 
 var speed=1;

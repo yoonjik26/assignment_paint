@@ -1,6 +1,6 @@
 console.log("loading shakeyhands");
 
-var shakeyhands = new Brush("shakey");
+var shakeyhands = new Brush("shakey",  "./brushes/shakeyhands/shakeyhands.svg");
 brushes.push(shakeyhands);
 
 var speed=1;
