@@ -29,15 +29,15 @@ yoonjik26.mouseDragged = function() {
 		// find how far the mouse moved this time
 		var distance = dist(pmouseX, pmouseY, mouseX, mouseY);
 
-		// figure out how many dots we need to draw, round down
+		// figure out how many circles we need to draw, round down
 		var steps = distance / stepSize;
 		steps = floor(steps);
 
-		// find the distance between dots on x and on y
+		// find the distance between circles on x and on y
 		var x = pmouseX;
 		var y = pmouseY;
 
-		// draw the dots
+		// draw the circles
 		for (i = 0; i < steps; i++) {
 			noFill();
 			stroke(c);
